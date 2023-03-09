@@ -10,11 +10,11 @@ import java.util.List;
 public class VoyageServiceImpl implements VoyageService{
     private VoyageRepository voyageRepository;
 
-    public VoyageServiceImpl() {
-    }
+
     public VoyageServiceImpl(VoyageRepository voyageRepository) {
         this.voyageRepository = voyageRepository;
     }
+
     @Override
     public List<Voyage> getAllTrips() {
         return voyageRepository.findAll();

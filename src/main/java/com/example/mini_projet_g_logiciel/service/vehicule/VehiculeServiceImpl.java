@@ -10,9 +10,6 @@ import java.util.List;
 public class VehiculeServiceImpl implements VehiculeService {
     private VehiculeRepository vehiculeRepository;
 
-    public VehiculeServiceImpl() {
-
-    }
 
     public VehiculeServiceImpl(VehiculeRepository vehiculeRepository) {
         this.vehiculeRepository = vehiculeRepository;
