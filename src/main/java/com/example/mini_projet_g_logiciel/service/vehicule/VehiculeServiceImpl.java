@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VehiculeServiceImpl implements VehiculeService{
-
+public class VehiculeServiceImpl implements VehiculeService {
     private VehiculeRepository vehiculeRepository;
 
     public VehiculeServiceImpl() {
