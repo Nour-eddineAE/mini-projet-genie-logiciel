@@ -20,7 +20,8 @@ public class MiniProjetGLogicielApplication {
     CommandLineRunner commandLineRunner(ConducteurService conducteurService){
         return args -> {
             // TODO (test)
-            conducteurService.saveDriver(new Conducteur(null, "test", "test", new Date(), "test", null, null, null));
+            conducteurService.saveDriver(new Conducteur(null, "test", "test",
+                    new Date(), "test", null, null, null));
         };
     }
 }
