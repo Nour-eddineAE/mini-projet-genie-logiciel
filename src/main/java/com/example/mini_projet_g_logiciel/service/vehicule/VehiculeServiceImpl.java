@@ -2,13 +2,15 @@ package com.example.mini_projet_g_logiciel.service.vehicule;
 
 import com.example.mini_projet_g_logiciel.dao.VehiculeRepository;
 import com.example.mini_projet_g_logiciel.entities.Vehicule;
+import com.example.mini_projet_g_logiciel.entities.Voyage;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class VehiculeServiceImpl implements VehiculeService {
-    private VehiculeRepository vehiculeRepository;
+    private final VehiculeRepository vehiculeRepository;
 
 
     public VehiculeServiceImpl(VehiculeRepository vehiculeRepository) {
@@ -41,5 +43,12 @@ public class VehiculeServiceImpl implements VehiculeService {
     @Override
     public void removeVehicle(String vehicleId) {
         vehiculeRepository.deleteById(vehicleId);
+    }
+
+    @Override
+    public boolean isAvailable(String vehicleId, Date dateDebut, Date dateFin) {
+        // if empty list => no trip in the specified interval => available
+        List<Voyage> voyages = vehiculeRepository.getVoyagesByInterval(dateDebut, dateFin);
+        return voyages.isEmpty();
     }
 }
