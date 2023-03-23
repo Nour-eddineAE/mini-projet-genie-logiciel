@@ -10,9 +10,6 @@ import java.util.List;
 public class ConducteurServiceImpl implements ConducteurService {
     private ConductorRepository conductorRepository;
 
-    public ConducteurServiceImpl() {
-    }
-
     public ConducteurServiceImpl(ConductorRepository conductorRepository) {
         this.conductorRepository = conductorRepository;
     }
@@ -25,12 +22,12 @@ public class ConducteurServiceImpl implements ConducteurService {
 
     @Override
     public List<Conducteur> getAllDrivers() {
-        return conductorRepository.findAll();
+        return this.conductorRepository.findAll();
     }
 
     @Override
     public Conducteur getDriverById(String driverId) {
-        Conducteur conducteur = conductorRepository.findById(driverId).orElse(null);
+        Conducteur conducteur = this.conductorRepository.findById(driverId).orElse(null);
         if (conducteur == null) {
             throw new RuntimeException("No driver with such id");
         }
@@ -39,11 +36,12 @@ public class ConducteurServiceImpl implements ConducteurService {
 
     @Override
     public Conducteur saveDriver(Conducteur conducteur) {
-        return conductorRepository.save(conducteur);
+        return this.conductorRepository.save(conducteur);
     }
 
     @Override
     public void removeDriver(String driverId) {
-        conductorRepository.deleteById(driverId);
+        this.conductorRepository.deleteById(driverId);
     }
+
 }

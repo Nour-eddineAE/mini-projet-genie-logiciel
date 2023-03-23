@@ -16,7 +16,7 @@ import java.util.Collection;
 public class Vehicule {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String immatriculationm;
+    private String immatriculation;
     private double kilometrage;
     private int puissance;
     @OneToMany(mappedBy = "vehicule")

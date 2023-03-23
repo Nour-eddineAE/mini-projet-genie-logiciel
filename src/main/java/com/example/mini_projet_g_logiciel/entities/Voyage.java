@@ -17,8 +17,8 @@ public class Voyage {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String codeVoyage;
-    private int dureeVoyage;
-    private Date dateVoyage;
+    private Date dateFinVoyage;
+    private Date dateDebutVoyage;
     @ManyToOne
     private Vehicule vehicule;
     @ManyToOne
