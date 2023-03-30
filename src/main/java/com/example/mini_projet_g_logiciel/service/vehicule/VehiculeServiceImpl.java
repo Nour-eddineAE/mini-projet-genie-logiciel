@@ -44,11 +44,4 @@ public class VehiculeServiceImpl implements VehiculeService {
     public void removeVehicle(String vehicleId) {
         vehiculeRepository.deleteById(vehicleId);
     }
-
-    @Override
-    public boolean isAvailable(String vehicleId, Date dateDebut, Date dateFin) {
-        // if empty list => no trip in the specified interval => available
-        List<Voyage> voyages = vehiculeRepository.getVoyagesByInterval(dateDebut, dateFin);
-        return voyages.isEmpty();
-    }
 }

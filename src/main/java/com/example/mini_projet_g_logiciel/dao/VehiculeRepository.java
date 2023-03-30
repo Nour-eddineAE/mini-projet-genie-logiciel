@@ -13,7 +13,8 @@ public interface VehiculeRepository extends JpaRepository<Vehicule, String> {
     /**
      * if any trip in the specified interval, then unavailable
      */
-    @Query("select Voyage from Vehicule.voyages voyages where voyages.dateDebutVoyage <= :dateDebut " +
+    @Query("select Voyage from Vehicule.voyages voyages" +
+            " where voyages.dateDebutVoyage <= :dateDebut " +
             "  and voyages.dateFinVoyage >= :dateFin")
     List<Voyage> getVoyagesByInterval(@Param("dateDebut") Date dateDebut,@Param("dateFin") Date dateFin);
 }

@@ -15,6 +15,4 @@ public interface VehiculeService {
     Vehicule saveVehicle(Vehicule vehicule);
 
     void removeVehicle(String vehicleId);
-
-    boolean isAvailable(String vehicleId, Date dateDebut, Date dateFin);
 }

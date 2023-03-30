@@ -1,8 +1,17 @@
 package com.example.mini_projet_g_logiciel.dao;
 
 import com.example.mini_projet_g_logiciel.entities.Conducteur;
+import com.example.mini_projet_g_logiciel.entities.Voyage;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-//JpaRepository<Entity, Id type>
+import java.util.Date;
+import java.util.List;
 public interface ConductorRepository extends JpaRepository<Conducteur, String> {
+    @Query("select Voyage from Conducteur.voyages voyages" +
+            " where voyages.dateDebutVoyage <= :dateDebut " +
+            "  and voyages.dateFinVoyage >= :dateFin")
+    List<Voyage> getTripsByInterval(@Param("dateDebut") Date dateDebut, @Param("dateFin") Date dateFin);
+
 }
